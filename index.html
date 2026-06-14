@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pablo Sorribes Córcoles — Física y Matemáticas</title>
+<meta name="description" content="Portfolio de Pablo Sorribes Córcoles, estudiante del Doble Grado en Física y Matemáticas (Universidad de Alicante): proyectos de modelización, simulación numérica y análisis de datos.">
+<meta name="theme-color" content="#1f4287">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pablo Sorribes Córcoles — Física y Matemáticas">
+<meta property="og:description" content="Modelización, simulación y análisis de datos aplicados a problemas abiertos. Proyectos de mecánica analítica, diseño experimental y análisis estadístico.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='rgb(31,66,135)'/><text x='16' y='23' font-size='16' font-family='Georgia,serif' font-weight='bold' fill='white' text-anchor='middle'>PS</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -42,13 +49,13 @@
 
   /* ---------- Sidebar ---------- */
   aside{
-    position:sticky;top:0;align-self:start;height:100vh;
+    position:sticky;top:0;align-self:start;min-height:100vh;
     padding:60px 44px;border-right:1px solid var(--line);
     display:flex;flex-direction:column;
   }
   aside .name{
     font-family:var(--display);font-weight:700;
-    font-size:1.9rem;line-height:1.1;letter-spacing:-.015em;margin:0 0 10px;
+    font-size:2rem;line-height:1.1;letter-spacing:-.015em;margin:0 0 10px;
   }
   aside .role{
     font-size:.95rem;color:var(--muted);margin:0 0 18px;line-height:1.45;
@@ -78,7 +85,7 @@
   section{padding:34px 0;border-top:1px solid var(--line);}
   section:first-child{border-top:none;padding-top:6px;}
   .eyebrow{
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;
     text-transform:uppercase;color:var(--accent);margin:0 0 20px;
   }
 
@@ -127,7 +134,7 @@
 
   /* ---------- Two-column ---------- */
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-  .block h4{
+  .block h3{
     font-family:var(--display);font-weight:600;font-size:1.02rem;margin:0 0 14px;
   }
   ul.clean{list-style:none;margin:0;padding:0;}
@@ -136,7 +143,7 @@
   ul.clean li .meta{display:block;color:var(--faint);font-size:.8rem;margin-top:1px;}
 
   /* ---------- Reconocimientos ---------- */
-  .rec h4{font-family:var(--display);font-weight:600;font-size:1.02rem;margin:0 0 12px;}
+  .rec h3{font-family:var(--display);font-weight:600;font-size:1.02rem;margin:0 0 12px;}
   .rec ul{list-style:none;margin:0;padding:0;}
   .rec li{position:relative;padding:0 0 11px 18px;font-size:.93rem;color:#33373f;line-height:1.5;}
   .rec li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;
@@ -164,6 +171,19 @@
     aside .name{font-size:1.65rem;}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+  /* ---------- Print ---------- */
+  @media print{
+    body{print-color-adjust:exact;-webkit-print-color-adjust:exact;font-size:10.5pt;}
+    .layout{display:block;max-width:none;margin:0;}
+    aside{position:static;min-height:0;border-right:none;border-bottom:1px solid var(--line);padding:0 0 16px;}
+    aside nav{display:none;}
+    main{padding:18px 0 0;}
+    section{padding:14px 0;break-inside:avoid;}
+    .project,.comp-group{break-inside:avoid;}
+    .report-link{display:none;}
+    footer{padding:14px 0 0;}
+  }
 </style>
 </head>
 <body>
@@ -176,7 +196,7 @@
     <div class="accent-rule"></div>
     <p class="pitch">Modelización, simulación y análisis de datos aplicados a problemas abiertos.</p>
 
-    <nav>
+    <nav aria-label="Secciones del portfolio">
       <a href="#perfil">Perfil</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#competencias">Competencias</a>
@@ -198,14 +218,14 @@
 
     <!-- Perfil -->
     <section id="perfil" class="perfil">
-      <p class="eyebrow">Perfil</p>
+      <h2 class="eyebrow">Perfil</h2>
       <p>Curso el Doble Grado en Física y Matemáticas en la Universidad de Alicante. Me desenvuelvo bien en problemas abiertos, sin una solución prefijada: prefiero entender un sistema a fondo, modelarlo y validar los resultados antes que limitarme a completar la tarea. En buena parte de mis proyectos he terminado ampliando el alcance por iniciativa propia, e incluso he diseñado de cero un experimento de laboratorio completo.</p>
       <p>Combino una base sólida en física y matemáticas con programación científica y análisis de datos. Más de una década de artes marciales —con experiencia impartiendo clases— y de voluntariado en Scouts me han dado disciplina, constancia y soltura trabajando en equipo.</p>
     </section>
 
     <!-- Proyectos -->
     <section id="proyectos">
-      <p class="eyebrow">Proyectos</p>
+      <h2 class="eyebrow">Proyectos</h2>
 
       <article class="project">
         <p class="cat">Mecánica analítica · Simulación numérica</p>
@@ -218,21 +238,21 @@
           <span class="tag">Dinámica no lineal y caos</span>
           <span class="tag">Análisis de Fourier</span>
         </div>
-        <a class="report-link" href="informes/informe1.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
+        <a class="report-link" href="informe1.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
       </article>
 
       <article class="project">
         <p class="cat">Diseño experimental · Análisis de señal</p>
-        <h3>Práctica de laboratorio de diseño propio</h3>
+        <h3>Osciladores acoplados inercialmente: cruce evitado</h3>
         <p class="credit">Con Alejandro Lozano</p>
         <p>Diseño íntegro de una práctica, de principio a fin, en lugar de seguir un guion dado: un oscilador con acoplamiento puramente inercial —un péndulo colgado de un carro sujeto por muelles—. Predije teóricamente la longitud de resonancia antes de medir, construí el montaje y analicé el movimiento con Tracker y transformadas de Fourier, observando un cruce evitado entre las frecuencias propias del sistema, fenómeno también presente en mecánica cuántica.</p>
         <div class="tags">
-          <span class="tag">Diseño experimental de cero</span>
+          <span class="tag">Diseño experimental completo</span>
           <span class="tag">Predicción teórica</span>
           <span class="tag">Tracker</span>
           <span class="tag">FFT</span>
         </div>
-        <a class="report-link" href="informes/informe2.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
+        <a class="report-link" href="informe2.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
       </article>
 
       <article class="project">
@@ -247,13 +267,13 @@
           <span class="tag">Tratamiento de errores</span>
           <span class="tag">Razonamiento crítico</span>
         </div>
-        <a class="report-link" href="informes/informe3.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
+        <a class="report-link" href="informe3.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
       </article>
     </section>
 
     <!-- Competencias -->
     <section id="competencias">
-      <p class="eyebrow">Competencias</p>
+      <h2 class="eyebrow">Competencias</h2>
 
       <div class="comp-group">
         <p class="label">Modelización y cómputo</p>
@@ -289,17 +309,17 @@
 
     <!-- Formación -->
     <section id="formacion">
-      <p class="eyebrow">Formación e idiomas</p>
+      <h2 class="eyebrow">Formación e idiomas</h2>
       <div class="cols">
         <div class="block">
-          <h4>Formación</h4>
+          <h3>Formación</h3>
           <ul class="clean">
             <li>Doble Grado en Física y Matemáticas<span class="meta">Universidad de Alicante · 2024–2029</span></li>
             <li>Bachillerato<span class="meta">Matrícula de Honor</span></li>
           </ul>
         </div>
         <div class="block">
-          <h4>Idiomas</h4>
+          <h3>Idiomas</h3>
           <ul class="clean">
             <li>Español<span class="meta">Nativo</span></li>
             <li>Inglés<span class="meta">C1 · Cambridge</span></li>
@@ -310,10 +330,10 @@
 
     <!-- Reconocimientos -->
     <section id="reconocimientos">
-      <p class="eyebrow">Reconocimientos y actividades</p>
+      <h2 class="eyebrow">Reconocimientos y actividades</h2>
       <div class="cols">
         <div class="rec">
-          <h4>Reconocimientos</h4>
+          <h3>Reconocimientos</h3>
           <ul>
             <li>Matrícula de Honor <span class="meta">— ESO y Bachillerato</span></li>
             <li>2× medalla de bronce <span class="meta">— Campeonato Nacional de Wushu</span></li>
@@ -321,7 +341,7 @@
           </ul>
         </div>
         <div class="rec">
-          <h4>Actividades</h4>
+          <h3>Actividades</h3>
           <ul>
             <li>Kung-fu / Wushu <span class="meta">— 10 años, con experiencia impartiendo clases</span></li>
             <li>Scouts <span class="meta">— 12 años, con experiencia de monitor y trabajo en grupo</span></li>
