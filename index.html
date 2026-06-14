@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pablo Sorribes Córcoles — Física y Matemáticas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#15171c;
+    --muted:#565c66;
+    --faint:#9499a1;
+    --line:#e6e8ec;
+    --accent:#1f4287;
+    --accent-strong:#16315f;
+    --accent-tint:#eef2f8;
+    --chip:#f5f6f8;
+    --display:'Space Grotesk', system-ui, sans-serif;
+    --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--body);font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-strong);text-decoration:underline;text-underline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+  /* ---------- Layout ---------- */
+  .layout{
+    display:grid;grid-template-columns:330px 1fr;
+    max-width:1200px;margin:0 auto;
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside{
+    position:sticky;top:0;align-self:start;height:100vh;
+    padding:60px 44px;border-right:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  aside .name{
+    font-family:var(--display);font-weight:700;
+    font-size:1.9rem;line-height:1.1;letter-spacing:-.015em;margin:0 0 10px;
+  }
+  aside .role{
+    font-size:.95rem;color:var(--muted);margin:0 0 18px;line-height:1.45;
+  }
+  aside .accent-rule{width:40px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:18px;}
+  aside .pitch{font-size:.9rem;color:var(--muted);margin:0 0 30px;}
+
+  aside nav{display:flex;flex-direction:column;gap:2px;}
+  aside nav a{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);padding:6px 0;text-transform:uppercase;
+  }
+  aside nav a:hover{color:var(--accent);text-decoration:none;}
+
+  aside .foot{margin-top:auto;padding-top:30px;}
+  aside .avail{
+    font-size:.8rem;color:var(--accent);font-weight:500;
+    margin:0 0 16px;line-height:1.4;
+  }
+  aside .contact{display:flex;flex-direction:column;gap:7px;font-size:.86rem;}
+  aside .contact .row{color:var(--muted);}
+  aside .contact .row span{color:var(--faint);display:block;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:1px;}
+
+  /* ---------- Main ---------- */
+  main{padding:60px 64px 90px;min-width:0;}
+  section{padding:34px 0;border-top:1px solid var(--line);}
+  section:first-child{border-top:none;padding-top:6px;}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 20px;
+  }
+
+  p{margin:0 0 16px;color:#2c3038;}
+  p:last-child{margin-bottom:0;}
+  .perfil p{font-size:1.02rem;line-height:1.72;}
+
+  /* ---------- Projects ---------- */
+  .project{padding:30px 0;border-top:1px solid var(--line);}
+  .project:first-of-type{border-top:none;padding-top:4px;}
+  .project .cat{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--faint);margin:0 0 8px;
+  }
+  .project h3{
+    font-family:var(--display);font-weight:600;font-size:1.28rem;
+    line-height:1.25;letter-spacing:-.01em;margin:0 0 4px;
+  }
+  .project .credit{font-size:.84rem;color:var(--faint);margin:0 0 14px;}
+  .project p{font-size:.97rem;color:#33373f;margin:0;}
+  .project .result{
+    margin-top:12px;font-size:.92rem;color:var(--accent-strong);
+    font-weight:500;
+  }
+  .project .result code{font-family:var(--mono);font-size:.85rem;background:var(--accent-tint);
+    padding:1px 6px;border-radius:4px;}
+
+  .report-link{
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-size:.84rem;font-weight:500;color:var(--accent);
+  }
+  .report-link .arrow{font-size:.95em;}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .tag{
+    font-size:12px;line-height:1;padding:6px 11px;border-radius:6px;
+    background:var(--chip);color:#3a3f47;border:1px solid var(--line);font-weight:500;
+  }
+
+  /* ---------- Competencias ---------- */
+  .comp-group{margin-bottom:22px;}
+  .comp-group:last-child{margin-bottom:0;}
+  .comp-group .label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 10px;
+  }
+
+  /* ---------- Two-column ---------- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .block h4{
+    font-family:var(--display);font-weight:600;font-size:1.02rem;margin:0 0 14px;
+  }
+  ul.clean{list-style:none;margin:0;padding:0;}
+  ul.clean li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.93rem;color:#33373f;}
+  ul.clean li:last-child{border-bottom:none;}
+  ul.clean li .meta{display:block;color:var(--faint);font-size:.8rem;margin-top:1px;}
+
+  /* ---------- Reconocimientos ---------- */
+  .rec h4{font-family:var(--display);font-weight:600;font-size:1.02rem;margin:0 0 12px;}
+  .rec ul{list-style:none;margin:0;padding:0;}
+  .rec li{position:relative;padding:0 0 11px 18px;font-size:.93rem;color:#33373f;line-height:1.5;}
+  .rec li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;
+    border-radius:50%;background:var(--accent);}
+  .rec li .meta{color:var(--faint);}
+
+  footer{
+    grid-column:1 / -1;border-top:1px solid var(--line);
+    padding:26px 64px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.05em;color:var(--faint);text-transform:uppercase;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;}
+    aside{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);
+      padding:48px 28px 36px;}
+    aside .foot{margin-top:28px;}
+    aside nav{flex-flow:row wrap;gap:6px 18px;}
+    main{padding:40px 28px 60px;}
+    .cols{grid-template-columns:1fr;gap:30px;}
+    footer{padding:24px 28px;}
+  }
+  @media (max-width:420px){
+    aside .name{font-size:1.65rem;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside>
+    <h1 class="name">Pablo Sorribes Córcoles</h1>
+    <p class="role">Doble Grado en Física y Matemáticas<br>Universidad de Alicante</p>
+    <div class="accent-rule"></div>
+    <p class="pitch">Modelización, simulación y análisis de datos aplicados a problemas abiertos.</p>
+
+    <nav>
+      <a href="#perfil">Perfil</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#competencias">Competencias</a>
+      <a href="#formacion">Formación</a>
+      <a href="#reconocimientos">Reconocimientos</a>
+    </nav>
+
+    <div class="foot">
+      <p class="avail">Abierto a prácticas, becas y colaboraciones.</p>
+      <div class="contact">
+        <div class="row"><span>Email</span><a href="mailto:pablo.sorribes.corcoles@gmail.com">pablo.sorribes.corcoles@gmail.com</a></div>
+        <div class="row"><span>Teléfono</span><a href="tel:+34653104593">653 104 593</a></div>
+        <div class="row"><span>Ubicación</span>Alicante, España</div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- Perfil -->
+    <section id="perfil" class="perfil">
+      <p class="eyebrow">Perfil</p>
+      <p>Curso el Doble Grado en Física y Matemáticas en la Universidad de Alicante. Me desenvuelvo bien en problemas abiertos, sin una solución prefijada: prefiero entender un sistema a fondo, modelarlo y validar los resultados antes que limitarme a completar la tarea. En buena parte de mis proyectos he terminado ampliando el alcance por iniciativa propia, e incluso he diseñado de cero un experimento de laboratorio completo.</p>
+      <p>Combino una base sólida en física y matemáticas con programación científica y análisis de datos. Más de una década de artes marciales —con experiencia impartiendo clases— y de voluntariado en Scouts me han dado disciplina, constancia y soltura trabajando en equipo.</p>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <p class="eyebrow">Proyectos</p>
+
+      <article class="project">
+        <p class="cat">Mecánica analítica · Simulación numérica</p>
+        <h3>Sistemas acoplados y dinámica no lineal</h3>
+        <p class="credit">Con Rodrigo Vercher Lidón</p>
+        <p>Modelización de varios sistemas de osciladores acoplados —péndulo doble y masas unidas por muelles— derivando sus ecuaciones mediante el formalismo Lagrangiano y resolviéndolas numéricamente, analizando la transición de un movimiento regular a uno caótico. Por iniciativa propia, fuera del guion, amplié el estudio a un péndulo doble con varillas elásticas, donde identifiqué una resonancia de Fermi 2:1 entre el movimiento angular y el radial.</p>
+        <div class="tags">
+          <span class="tag">Formalismo Lagrangiano</span>
+          <span class="tag">Integración numérica</span>
+          <span class="tag">Dinámica no lineal y caos</span>
+          <span class="tag">Análisis de Fourier</span>
+        </div>
+        <a class="report-link" href="informes/informe1.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
+      </article>
+
+      <article class="project">
+        <p class="cat">Diseño experimental · Análisis de señal</p>
+        <h3>Práctica de laboratorio de diseño propio</h3>
+        <p class="credit">Con Alejandro Lozano</p>
+        <p>Diseño íntegro de una práctica, de principio a fin, en lugar de seguir un guion dado: un oscilador con acoplamiento puramente inercial —un péndulo colgado de un carro sujeto por muelles—. Predije teóricamente la longitud de resonancia antes de medir, construí el montaje y analicé el movimiento con Tracker y transformadas de Fourier, observando un cruce evitado entre las frecuencias propias del sistema, fenómeno también presente en mecánica cuántica.</p>
+        <div class="tags">
+          <span class="tag">Diseño experimental de cero</span>
+          <span class="tag">Predicción teórica</span>
+          <span class="tag">Tracker</span>
+          <span class="tag">FFT</span>
+        </div>
+        <a class="report-link" href="informes/informe2.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
+      </article>
+
+      <article class="project">
+        <p class="cat">Metrología · Análisis estadístico</p>
+        <h3>Determinación de <em>g</em> con un péndulo de Kater</h3>
+        <p class="credit">Con Alejandro Lozano</p>
+        <p>Medida experimental de la gravedad local mediante un péndulo reversible de Kater, obteniendo el valor por regresión lineal sobre los periodos de oscilación. Más allá del resultado, analicé el origen de la discrepancia con el valor de referencia y demostré, a partir del estudio de los residuos, que el error es de naturaleza sistemática y aleatoria —no un fallo del método—.</p>
+        <p class="result">Ajuste de alta calidad: <code>R² = 0,998</code> · <code>g = 9,0 ± 0,4 m/s²</code></p>
+        <div class="tags">
+          <span class="tag">Regresión y ajuste</span>
+          <span class="tag">Análisis de incertidumbres</span>
+          <span class="tag">Tratamiento de errores</span>
+          <span class="tag">Razonamiento crítico</span>
+        </div>
+        <a class="report-link" href="informes/informe3.pdf" target="_blank" rel="noopener">Ver informe completo <span class="arrow">(PDF&nbsp;↗)</span></a>
+      </article>
+    </section>
+
+    <!-- Competencias -->
+    <section id="competencias">
+      <p class="eyebrow">Competencias</p>
+
+      <div class="comp-group">
+        <p class="label">Modelización y cómputo</p>
+        <div class="tags">
+          <span class="tag">Modelización matemática</span>
+          <span class="tag">Simulación numérica</span>
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+        </div>
+      </div>
+
+      <div class="comp-group">
+        <p class="label">Experimentación y datos</p>
+        <div class="tags">
+          <span class="tag">Diseño experimental</span>
+          <span class="tag">Análisis de datos e incertidumbres</span>
+          <span class="tag">SciDAVis</span>
+          <span class="tag">Tracker</span>
+          <span class="tag">Análisis de Fourier</span>
+        </div>
+      </div>
+
+      <div class="comp-group">
+        <p class="label">Transversales</p>
+        <div class="tags">
+          <span class="tag">Iniciativa y autonomía</span>
+          <span class="tag">Comunicación científica</span>
+          <span class="tag">Trabajo en equipo</span>
+          <span class="tag">Herramientas de IA para investigación</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formación -->
+    <section id="formacion">
+      <p class="eyebrow">Formación e idiomas</p>
+      <div class="cols">
+        <div class="block">
+          <h4>Formación</h4>
+          <ul class="clean">
+            <li>Doble Grado en Física y Matemáticas<span class="meta">Universidad de Alicante · 2024–2029</span></li>
+            <li>Bachillerato<span class="meta">Matrícula de Honor</span></li>
+          </ul>
+        </div>
+        <div class="block">
+          <h4>Idiomas</h4>
+          <ul class="clean">
+            <li>Español<span class="meta">Nativo</span></li>
+            <li>Inglés<span class="meta">C1 · Cambridge</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reconocimientos -->
+    <section id="reconocimientos">
+      <p class="eyebrow">Reconocimientos y actividades</p>
+      <div class="cols">
+        <div class="rec">
+          <h4>Reconocimientos</h4>
+          <ul>
+            <li>Matrícula de Honor <span class="meta">— ESO y Bachillerato</span></li>
+            <li>2× medalla de bronce <span class="meta">— Campeonato Nacional de Wushu</span></li>
+            <li>Premios de relato corto <span class="meta">— concurso del instituto y concurso Coca-Cola</span></li>
+          </ul>
+        </div>
+        <div class="rec">
+          <h4>Actividades</h4>
+          <ul>
+            <li>Kung-fu / Wushu <span class="meta">— 10 años, con experiencia impartiendo clases</span></li>
+            <li>Scouts <span class="meta">— 12 años, con experiencia de monitor y trabajo en grupo</span></li>
+            <li>Brazilian Jiu-Jitsu <span class="meta">— práctica actual</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>Pablo Sorribes Córcoles · Física y Matemáticas · Universidad de Alicante</footer>
+
+</div>
+
+</body>
+</html>
